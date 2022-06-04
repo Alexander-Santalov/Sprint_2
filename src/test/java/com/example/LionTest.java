@@ -1,5 +1,6 @@
 package com.example;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.mockito.*;
 
@@ -32,7 +33,8 @@ public class LionTest extends TestBase {
     @Test
     public void getExceptionMessage() {
         try {
-            new Lion("сомец", feline);
+            new Lion("самец", feline);
+            Assert.fail("Expected Exception");
         } catch (Exception thrown) {
             assertEquals("Используйте допустимые значения пола животного - самец или самка",
                     thrown.getMessage());
