@@ -15,9 +15,10 @@ public class LionTest extends TestBase {
     @Test
     public void getLionFoodTest() throws Exception {
         Lion lion = new Lion("Самец", feline);
-        Mockito.when(feline.getFood("Хищник")).thenReturn(Arrays.asList("Животные", "Птицы", "Рыба"));
+        List<String> expectedFood = List.of("Животные", "Птицы", "Рыба");
+        Mockito.when(feline.getFood("Хищник")).thenReturn(expectedFood);
         List<String> actualEatMeat = lion.getFood();
-        assertEquals(Arrays.asList("Животные", "Птицы", "Рыба"), actualEatMeat);
+        assertEquals(expectedFood, actualEatMeat);
     }
 
     @Test
